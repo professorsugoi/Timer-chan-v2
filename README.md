@@ -7,11 +7,7 @@ Original app: http://neilblr.com/post/58757345346
 
 ========================
 
-![active](active.png)  
-<sub>when focused on chosen window (GOOD)</sub>  
-  
-![idle](idle.png)  
-<sub>when focused on other windows (DISGUSTING)</sub> 
+Turns green when active. Grey when not.  
 
 ### HOW TO:
 1. open MENU
