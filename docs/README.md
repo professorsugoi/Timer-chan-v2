@@ -11,6 +11,7 @@ you're welcome to contribute- just keep in mind that i am a novice coder baby.
 ## TO DO
 - eventually make versions compatible with mac and linux OS
 - graphics and styling
+- install path? so the timer.ini file isnt just sitting out in the open rawdoggin the desktop.
 
 ---
 
