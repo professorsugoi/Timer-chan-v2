@@ -2,7 +2,7 @@ import os
 import sys
 from PyQt6.QtWidgets import QWidget, QLabel, QPushButton, QVBoxLayout, QMenu, QMessageBox, QDialog, QInputDialog
 from PyQt6.QtCore import QTimer, Qt
-from PyQt6.QtGui import QFont
+from PyQt6.QtGui import QFont, QIcon
 from config_manager import ConfigManager
 from mouse_listener import MouseListener
 from program_manager import ProgramManagerDialog
@@ -83,6 +83,9 @@ class TimerApp(QWidget):
         self.setWindowFlags(Qt.WindowType.Window | Qt.WindowType.WindowTitleHint | Qt.WindowType.CustomizeWindowHint | Qt.WindowType.WindowCloseButtonHint)
         self.setWindowFlags(self.windowFlags() | Qt.WindowType.WindowStaysOnTopHint)
         self.setFixedSize(*WINDOW_SIZE)
+        
+        icon_path = os.path.join(os.path.dirname(__file__), 'assets', 'Timer-chan_icon.ico')
+        self.setWindowIcon(QIcon(icon_path))
 
         layout = QVBoxLayout()
 
