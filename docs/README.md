@@ -25,4 +25,4 @@ you're welcome to contribute- just keep in mind that i am a novice coder baby.
 run `pip install -e .`  
 
 ## to test the app
-run `timer_app.py`
+run `python -m src.main`
