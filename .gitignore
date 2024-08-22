@@ -21,6 +21,7 @@ var/
 wheels/
 share/python-wheels/
 *.egg-info/
+timer_app.egg-info/
 .installed.cfg
 *.egg
 MANIFEST
@@ -53,3 +54,5 @@ ehthumbs_vista.db
 
 # Misc
 timer.ini
+tool.py
+tool_files.txt
