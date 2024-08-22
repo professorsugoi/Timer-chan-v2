@@ -8,7 +8,7 @@ from mouse_listener import MouseListener
 from program_manager import ProgramManagerDialog
 from ui.window_grabber import WindowGrabber
 from ui.preferences_dialog import PreferencesDialog
-from ui.constants import WINDOW_TITLE, WINDOW_GEOMETRY, FONT_FAMILY, FONT_SIZE, FONT_WEIGHT, ON_COLOR, OFF_COLOR
+from ui.constants import WINDOW_TITLE_IDLE, WINDOW_TITLE_ACTIVE, WINDOW_SIZE, FONT_FAMILY, FONT_SIZE, FONT_WEIGHT, ON_COLOR, OFF_COLOR
 
 class TimerApp(QWidget):
     """
@@ -79,9 +79,10 @@ class TimerApp(QWidget):
         sets up main window properties, creates and arranges
         the time display label and MENU button.
         """
-        self.setWindowTitle(WINDOW_TITLE)
-        self.setGeometry(*WINDOW_GEOMETRY)
-        self.setWindowFlags(Qt.WindowType.WindowStaysOnTopHint)
+        self.setWindowTitle(WINDOW_TITLE_IDLE)
+        self.setWindowFlags(Qt.WindowType.Window | Qt.WindowType.WindowTitleHint | Qt.WindowType.CustomizeWindowHint | Qt.WindowType.WindowCloseButtonHint)
+        self.setWindowFlags(self.windowFlags() | Qt.WindowType.WindowStaysOnTopHint)
+        self.setFixedSize(*WINDOW_SIZE)
 
         layout = QVBoxLayout()
 
@@ -155,22 +156,18 @@ class TimerApp(QWidget):
         activate timer and update the UI.
         
         sets timer to active and changes background color
-        if color alerts are enabled.
+        if color alerts are enabled. also changes window title.
         """
         if not self.timerActive:
             self.timerActive = True
+            self.setWindowTitle(WINDOW_TITLE_ACTIVE)
             if self.colorAlert:
                 self.setStyleSheet(f"background-color: #{self.onColor};")
 
     def deactivateTimer(self):
-        """
-        deactivate timer and update the UI.
-        
-        sets timer to inactive and changes background color
-        if color alerts are disabled.
-        """
         if self.timerActive:
             self.timerActive = False
+            self.setWindowTitle(WINDOW_TITLE_IDLE)
             if self.colorAlert:
                 self.setStyleSheet(f"background-color: #{self.offColor};")
 
